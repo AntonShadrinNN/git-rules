@@ -24,7 +24,7 @@
 Следующая команда создаст репозиторий с веткой *main*:
 
 ```bash
-git init --initial-branch=\<branch-name>
+git init --initial-branch=<branch-name>
 ```
 
 :warning: При просмотре вывода *git branch* можно увидеть, что несмотря на создание базовой бранчи, список веток пуст. Чтобы main сохранилась и была видна после вывода *git branch*, нужно сделать [пустой](#как-сделать-пустой-коммит-затриггерить-билды) коммит.
@@ -35,7 +35,7 @@ git init --initial-branch=\<branch-name>
 ```bash
 git checkout main
 git pull
-git checkout -b \<your_branch_name>
+git checkout -b <your_branch_name>
 ```
 
 ## Удаление Веток
@@ -44,8 +44,8 @@ git checkout -b \<your_branch_name>
 :warning: При удалении нельзя находится на удаляемой ветке
 
 ```bash
-git checkout \<another_existing_branch>
-git branch -D \<branch_to_delete>
+git checkout <another_existing_branch>
+git branch -D <branch_to_delete>
 ```
 
 :warning: Удаление веток происходит локально, не затрагивая удалённый репозиторий
@@ -69,14 +69,14 @@ git commit -m "Commit message"
 Если всё же после *git add* лишние файлы начали отслеживаться гитом, то их можно удалить.
 
 ```bash
-git restore --staged \<file_name>
+git restore --staged <file_name>
 ```
 
 ## Случайно Закоммитил Лишний Файл
 Если лишний файл был замечен уже после того, как создался коммит, то можно удалить его, сделав ещё один коммит, но не удаляя его локально. То есть гит будет считать, что этот файл никогда не был в коммите, но файл останется в рабочей директории.
 
 ```bash
-git rm --cached \<file_name>
+git rm --cached <file_name>
 git commit -m "Commit message"
 ```
 
@@ -112,7 +112,7 @@ hint: To abort and get back to the state before "git rebase", run "git rebase --
 Необходимо пройтись по всем файлам, указанным как конфликтным и разрешить все конфликты.
 
 ```bash
-git rebase \<rebase_branch>
+git rebase <rebase_branch>
 # Разрешить все конфликты
 git add .
 git rebase --continue
@@ -156,6 +156,6 @@ git commit --allow-empty -m "Commit message"
 Иногда бывает полезно объединить несколько коммитов в один, чтобы не разрешать большое количество конфликтов:
 
 ```bash
-git reset --soft HEAD~\<Количество коммитов, которые нужно объединить>
+git reset --soft HEAD~<Количество коммитов, которые нужно объединить>
 git commit -m "Commit message"
 ```
